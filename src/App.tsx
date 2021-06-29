@@ -5,20 +5,23 @@ import { NewRoom } from './pages/NewRoom';
 import { Room } from './pages/Room';
 import { AdminRoom } from './pages/AdminRoom';
 
-import { AuthCountextProvider } from './contexts/AuthContext';
+import { AuthContextProvider } from './contexts/AuthContext';
+import { ThemeContextProvider } from './contexts/ThemeContext';
 
 function App() {
   return (
     <BrowserRouter>
-      <AuthCountextProvider>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/rooms/new" component={NewRoom} />
-          <Route path="/rooms/:id" component={Room} />
+      <AuthContextProvider>
+        <ThemeContextProvider>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/rooms/new" component={NewRoom} />
+            <Route path="/rooms/:id" component={Room} />
 
-          <Route path="/admin/rooms/:id" component={AdminRoom} />
-        </Switch>
-      </AuthCountextProvider>
+            <Route path="/admin/rooms/:id" component={AdminRoom} />
+          </Switch>
+        </ThemeContextProvider>
+      </AuthContextProvider>
     </BrowserRouter>
   );
 }

@@ -70,7 +70,9 @@ export function Room() {
     <div id="page-room">
       <header>
         <div className="content">
-          <Link to="/"><img src={logoImg} alt="Letmeask" /></Link>
+          <Link to="/">
+            <img src={logoImg} alt="Letmeask" />
+          </Link>
           <RoomCode code={roomId} />
         </div>
       </header>
@@ -96,7 +98,11 @@ export function Room() {
               </div>
             ) : (
               <span>
-                Para enviar uma pergunta, <button>faça seu login</button>.
+                Para enviar uma pergunta,{' '}
+                <Link to="/">
+                  <button>faça seu login</button>
+                </Link>
+                .
               </span>
             )}
 
